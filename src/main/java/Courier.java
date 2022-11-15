@@ -3,6 +3,16 @@ public class Courier {
     private String password;
     private String firstName;
 
+    public Courier(String login, String password, String firstName) {
+        this.login = login;
+        this.password = password;
+        this.firstName = firstName;
+    }
+
+    public Courier() {
+
+    }
+
     public String getLogin() {
         return login;
     }
@@ -25,15 +35,5 @@ public class Courier {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }
-
-    public Courier(String login, String password, String firstName) {
-        this.login = login;
-        this.password = password;
-        this.firstName = firstName;
-    }
-
-    public Courier() {
-
     }
 }

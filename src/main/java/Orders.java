@@ -1,4 +1,4 @@
-public class OrdersJson {
+public class Orders {
     private String firstName;
     private String lastName;
     private String address;
@@ -8,6 +8,21 @@ public class OrdersJson {
     private String deliveryDate;
     private String comment;
     private String[] color;
+
+    public Orders(String firstName, String lastName, String address, String metroStation, String phone, Number rentTime, String deliveryDate, String comment) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.metroStation = metroStation;
+        this.phone = phone;
+        this.rentTime = rentTime;
+        this.deliveryDate = deliveryDate;
+        this.comment = comment;
+    }
+
+    public Orders() {
+
+    }
 
     public String getFirstName() {
         return firstName;
@@ -79,20 +94,6 @@ public class OrdersJson {
 
     public void setColor(String[] color) {
         this.color = color;
-    }
-
-    public OrdersJson(String firstName, String lastName, String address, String metroStation, String phone, Number rentTime, String deliveryDate, String comment) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.metroStation = metroStation;
-        this.phone = phone;
-        this.rentTime = rentTime;
-        this.deliveryDate = deliveryDate;
-        this.comment = comment;
-    }
-    public OrdersJson() {
-
     }
 
 }

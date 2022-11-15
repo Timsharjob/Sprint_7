@@ -25,10 +25,10 @@ public class CourierClient extends Client {
                 .then();
     }
 
-    public ValidatableResponse delete(int id) {
+    public ValidatableResponse delete(int id, CourierLogin courierLogin) {
         return given()
                 .spec(getSpec())
-                .body("")
+                .body(courierLogin)
                 .when()
                 .delete(PATH_CREATE + "/" + id)
                 .then();
