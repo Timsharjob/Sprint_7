@@ -1,6 +1,10 @@
+import api.courierpackage.Courier;
+import api.courierpackage.CourierClient;
+import api.courierpackage.CourierGenerator;
+import api.courierpackage.CourierLogin;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,16 +27,16 @@ public class CourierLoginTest {
     @After
     public void cleanUp() {
         courierLogin = new CourierLogin();
-        courierClient.delete(id,courierLogin);
+        courierClient.delete(id, courierLogin);
     }
 
+    @DisplayName("Авторизация курьера")
     @Test
     public void courierCanBeLogin() {
         ValidatableResponse responseCreate = courierClient.create(courier);
         ValidatableResponse responseLogin = courierClient.login(courierLogin);
-        id = responseLogin.extract().path("id");
-        int actualStatusCode = responseLogin.extract().statusCode();
-        Assert.assertEquals(SC_OK, actualStatusCode);
+        responseLogin.assertThat().statusCode(SC_OK);
         responseLogin.assertThat().body("id", notNullValue());
+        id = responseLogin.extract().path("id");
     }
 }

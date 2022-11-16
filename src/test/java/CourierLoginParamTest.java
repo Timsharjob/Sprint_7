@@ -1,3 +1,6 @@
+import api.courierpackage.CourierClient;
+import api.courierpackage.CourierGenerator;
+import api.courierpackage.CourierLogin;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.junit.Assert;
@@ -37,6 +40,7 @@ public class CourierLoginParamTest {
         courierClient = new CourierClient();
     }
 
+    @DisplayName("Авторизация курьера")
     @Test
     public void negativeCourierLoginTest() {
         ValidatableResponse responseLogin = courierClient.login(courierLogin);

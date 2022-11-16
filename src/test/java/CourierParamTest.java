@@ -1,3 +1,7 @@
+import api.courierpackage.Courier;
+import api.courierpackage.CourierClient;
+import api.courierpackage.CourierGenerator;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.junit.Assert;
 import org.junit.Before;
@@ -37,6 +41,7 @@ public class CourierParamTest {
         courierClient = new CourierClient();
     }
 
+    @DisplayName("Создание курьера")
     @Test()
     public void negativeCourierCreateTest() {
         ValidatableResponse responseCreate = courierClient.create(courier);

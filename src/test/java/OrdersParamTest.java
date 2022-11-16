@@ -1,6 +1,10 @@
+import api.orderspackage.Orders;
+import api.orderspackage.OrdersCancel;
+import api.orderspackage.OrdersClient;
+import api.orderspackage.OrdersGenerator;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,13 +48,13 @@ public class OrdersParamTest {
         ordersClient.delete(ordersCancel);
     }
 
+    @DisplayName("Получение списка заказов")
     @Test
     public void ordersCanBeCreated() {
         ValidatableResponse responseCreate = ordersClient.create(order);
-        int actualStatusCode = responseCreate.extract().statusCode();
-        track = responseCreate.extract().path("track");
         responseCreate.assertThat().body("track", notNullValue());
-        Assert.assertEquals(statusCode, actualStatusCode);
+        responseCreate.assertThat().statusCode(statusCode);
+        track = responseCreate.extract().path("track");
     }
 
 }

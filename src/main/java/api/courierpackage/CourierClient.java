@@ -1,3 +1,6 @@
+package api.courierpackage;
+
+import api.Client;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 
@@ -16,6 +19,7 @@ public class CourierClient extends Client {
                 .post(PATH_CREATE)
                 .then();
     }
+
     @Step("/api/v1/courier/login")
     public ValidatableResponse login(CourierLogin courierLogin) {
         return given()
@@ -25,6 +29,7 @@ public class CourierClient extends Client {
                 .post(PATH_LOGIN)
                 .then();
     }
+
     @Step("/api/v1/courier - delete")
     public ValidatableResponse delete(int id, CourierLogin courierLogin) {
         return given()

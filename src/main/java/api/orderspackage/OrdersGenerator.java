@@ -1,3 +1,5 @@
+package api.orderspackage;
+
 public class OrdersGenerator {
     public static Orders getDefaultOrder() {
         return new Orders("Naruto", "Uchiha", "Konoha, 142 apt.", "4",

@@ -1,3 +1,8 @@
+import api.courierpackage.Courier;
+import api.courierpackage.CourierClient;
+import api.courierpackage.CourierGenerator;
+import api.courierpackage.CourierLogin;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.junit.After;
 import org.junit.Assert;
@@ -26,6 +31,7 @@ public class CourierTest {
         courierClient.delete(id, courierLogin);
     }
 
+    @DisplayName("Создание курьера")
     @Test
     public void courierCanBeCreated() {
         ValidatableResponse responseCreate = courierClient.create(courier);
@@ -38,6 +44,7 @@ public class CourierTest {
         Assert.assertEquals(expectedIsOk, actualIsOk);
     }
 
+    @DisplayName("Создание курьера")
     @Test
     public void twoSameCourierCanBeCreated() {
         ValidatableResponse firstResponseCreate = courierClient.create(courier);

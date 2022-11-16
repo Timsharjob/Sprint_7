@@ -1,5 +1,7 @@
+import api.orderspackage.Orders;
+import api.orderspackage.OrdersClient;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,11 +18,11 @@ public class OrdersGetTest {
         order = new Orders();
     }
 
+    @DisplayName("Получение списка заказов")
     @Test
     public void getOrdersTest() {
         ValidatableResponse getResponse = ordersClient.getOrders(order);
-        int actualStatusCode = getResponse.extract().statusCode();
-        Assert.assertEquals(SC_OK, actualStatusCode);
+        getResponse.assertThat().statusCode(SC_OK);
         getResponse.assertThat().body("orders", notNullValue());
     }
 }
